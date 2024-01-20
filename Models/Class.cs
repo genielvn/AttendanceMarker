@@ -20,5 +20,16 @@ namespace AttendanceMarker.Models
         {
             _students.Add(newStudent);
         }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Class _class &&
+                _class.ClassName == ClassName;
+        }
+
+        public override string ToString()
+        {
+            return ClassName;
+        }
     }
 }
