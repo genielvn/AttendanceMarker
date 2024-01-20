@@ -7,18 +7,12 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Main.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\SignInView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Main.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="SignIn.xaml">
+    <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\SignInView.xaml">

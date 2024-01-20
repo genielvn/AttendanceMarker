@@ -14,9 +14,9 @@ namespace AttendanceMarker
     /// <summary>
     /// Interaction logic for SignIn.xaml
     /// </summary>
-    public partial class SignIn : Window
+    public partial class MainWindow : Window
     {
-        public SignIn()
+        public MainWindow()
         {
             InitializeComponent();
         }
