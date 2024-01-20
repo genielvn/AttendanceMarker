@@ -7,8 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="350">
     <Grid>
-        <TextBox x:Name="txtUsername" HorizontalAlignment="Center" Margin="0,95,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="280"/>
-        <TextBox x:Name="txtPassword" HorizontalAlignment="Center" Margin="0,131,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="280"/>
+        <TextBox x:Name="txtUsername" HorizontalAlignment="Center" Margin="0,95,0,0" TextWrapping="Wrap" Text="{Binding Username}" VerticalAlignment="Top" Width="280"/>
+        <TextBox x:Name="txtPassword" HorizontalAlignment="Center" Margin="0,131,0,0" TextWrapping="Wrap" Text="{Binding Password}" VerticalAlignment="Top" Width="280"/>
         <Button x:Name="btnSignIn" Content="Sign In" HorizontalAlignment="Center" Margin="0,190,0,0" VerticalAlignment="Top" Padding="10, 5"/>
 
     </Grid>
