@@ -20,19 +20,5 @@ namespace AttendanceMarker.Models
         {
             _classes.Add(newClass); 
         }
-
-        public void AddStudent(Class _class, Student student)
-        {
-            foreach (var classvar in _classes)
-            {
-                if (_class.Equals(classvar))
-                {
-                    classvar.AddStudent(student);
-                    return;
-                }
-
-                throw new Exception("Class does not exist");
-            }
-        }
     }
 }
