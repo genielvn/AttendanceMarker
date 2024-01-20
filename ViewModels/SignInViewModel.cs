@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace AttendanceMarker.ViewModels
 {
@@ -20,6 +21,27 @@ namespace AttendanceMarker.ViewModels
 				_username = value;
 				OnPropertyChanged(nameof(Username));
 			}
+		}
+
+		private string _password;
+		public string Password
+		{
+			get
+			{
+				return _password;
+			}
+			set
+			{
+				_password = value;
+				OnPropertyChanged(nameof(Password));
+			}
+		}
+
+		public ICommand SignInCommand { get; }
+
+		public SignInViewModel()
+		{
+
 		}
 	}
 }
