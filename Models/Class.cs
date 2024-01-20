@@ -20,6 +20,10 @@ namespace AttendanceMarker.Models
         {
             _students.Add(newStudent);
         }
+        public List<Student> GetStudents()
+        {
+            return _students;
+        }
 
         public override bool Equals(object? obj)
         {
