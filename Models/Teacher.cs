@@ -16,5 +16,9 @@ namespace AttendanceMarker.Models
             _classes = new List<Class>();
         }
         
+        public void AddClass(Class newClass) 
+        {
+            _classes.Add(newClass); 
+        }
     }
 }
