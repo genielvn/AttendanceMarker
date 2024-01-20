@@ -22,7 +22,7 @@ namespace AttendanceMarker.Models
             );
         }
 
-        public Teacher LogIn(string username, string password)
+        public Teacher? LogIn(string username, string password)
         {
             foreach (var profile in _credentials)
             {
@@ -32,6 +32,6 @@ namespace AttendanceMarker.Models
                 }
             }
             return null;
-
         }
     }
+}
