@@ -9,10 +9,12 @@ namespace AttendanceMarker.Models
     class Student
     {
         public string StudentName { get; }
+        public string StudentID { get; }
         private readonly List<Attendance> _attendanceRecord;
-        public Student(string studentName)
+        public Student(string studentName, string studentID)
         {
             StudentName = studentName;
+            StudentID = studentID;
             _attendanceRecord = new List<Attendance>();
         }
 
