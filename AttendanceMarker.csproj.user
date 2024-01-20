@@ -7,15 +7,15 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="winMain.xaml.cs">
+    <Compile Update="View\Main.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="winMain.xaml">
+    <Page Update="View\Main.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="winSignIn.xaml">
+    <Page Update="View\SignIn.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
