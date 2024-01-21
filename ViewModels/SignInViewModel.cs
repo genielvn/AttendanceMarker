@@ -38,10 +38,12 @@ namespace AttendanceMarker.ViewModels
 		}
 
 		public ICommand SignInCommand { get; }
+		public ICommand SignUpCommand { get; }
+		public ICommand ForgotPasswordCommand { get; }
 
-		public SignInViewModel()
-		{
-
-		}
-	}
+        public SignInViewModel()
+        {
+            
+        }
+    }
 }
