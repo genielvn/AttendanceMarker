@@ -31,6 +31,11 @@ namespace AttendanceMarker.Models
                 _class.ClassName == ClassName;
         }
 
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(ClassName, _students);
+        }
+
         public override string ToString()
         {
             return ClassName;
