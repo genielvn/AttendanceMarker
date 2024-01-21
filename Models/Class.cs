@@ -20,7 +20,7 @@ namespace AttendanceMarker.Models
         {
             _students.Add(newStudent);
         }
-        public List<Student> GetStudents()
+        public IEnumerable<Student> GetStudents()
         {
             return _students;
         }

@@ -23,7 +23,7 @@ namespace AttendanceMarker.Models
             _attendanceRecord.Add(attendance);
         }
 
-        public List<Attendance> GetRecord(DateTime date)
+        public IEnumerable<Attendance> GetRecord(DateTime date)
         {
             return _attendanceRecord.Where(record => record.Date == date).ToList();
         }
