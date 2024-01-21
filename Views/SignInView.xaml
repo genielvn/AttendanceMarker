@@ -5,11 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AttendanceMarker.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="350" d:DesignWidth="350">
+             d:DesignHeight="700" d:DesignWidth="1000">
     <Grid>
-        <TextBox x:Name="txtUsername" HorizontalAlignment="Center" Margin="0,95,0,0" TextWrapping="Wrap" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="280"/>
-        <TextBox x:Name="txtPassword" HorizontalAlignment="Center" Margin="0,131,0,0" TextWrapping="Wrap" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="280"/>
-        <Button x:Name="btnSignIn" Content="Sign In" HorizontalAlignment="Center" Margin="0,190,0,0" VerticalAlignment="Top" Padding="10, 5" Command="{Binding SignInCommand, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox x:Name="txtUsername" HorizontalAlignment="Center" Margin="0,255,0,0" TextWrapping="Wrap" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="280"/>
+        <TextBox x:Name="txtPassword" HorizontalAlignment="Center" Margin="0,291,0,0" TextWrapping="Wrap" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="280"/>
+        <Button x:Name="btnSignIn" Content="Sign In" HorizontalAlignment="Center" Margin="0,350,0,0" VerticalAlignment="Top" Padding="10, 5" Command="{Binding SignInCommand, UpdateSourceTrigger=PropertyChanged}"/>
 
     </Grid>
 </UserControl>
