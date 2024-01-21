@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:AttendanceMarker.Views"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1000">
+             d:DesignHeight="600" d:DesignWidth="1000">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
