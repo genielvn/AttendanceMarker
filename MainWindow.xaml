@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:AttendanceMarker" 
         xmlns:views="clr-namespace:AttendanceMarker.Views"
         mc:Ignorable="d"
-        Title="SignIn" Height="350" Width="350 " WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="SignIn" Height="700" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <views:SignInView DataContext="{Binding CurrentViewModel}"/>
+        <views:LookClassView DataContext="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>
