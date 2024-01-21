@@ -4,12 +4,55 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AttendanceMarker.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="700" d:DesignWidth="1000">
+             mc:Ignorable="d"
+             Name="SignIn"
+             Background="#FFF0F0F0"
+             d:DesignWidth="1000" d:DesignHeight="600">
     <Grid>
-        <TextBox x:Name="txtUsername" HorizontalAlignment="Center" Margin="0,255,0,0" TextWrapping="Wrap" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="280"/>
-        <TextBox x:Name="txtPassword" HorizontalAlignment="Center" Margin="0,291,0,0" TextWrapping="Wrap" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="280"/>
-        <Button x:Name="btnSignIn" Content="Sign In" HorizontalAlignment="Center" Margin="0,350,0,0" VerticalAlignment="Top" Padding="10, 5" Command="{Binding SignInCommand, UpdateSourceTrigger=PropertyChanged}"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <!--Username field-->
+        <Grid Grid.Row="0" HorizontalAlignment="Center" Margin="0,255,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
 
+            <TextBlock Grid.Row="0" Text="Username"/>
+            <TextBox Grid.Row="1" x:Name="txtUsername" TextWrapping="Wrap" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="280"/>
+        </Grid>
+
+        <!--Password field-->
+        <Grid Grid.Row="0" HorizontalAlignment="Center" Margin="0,290,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Password"/>
+            <TextBox Grid.Row="1" Grid.Column="0" x:Name="txtPassword" TextWrapping="Wrap" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="280"/>
+
+            <Button Grid.Row="1" Grid.Column="1" x:Name="SignUpbtn" Content="Sign Up" VerticalAlignment="Top" Margin="500 0 0 0" Padding="10, 5" Command="{Binding SignUpCommand, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
+
+        <!--Sign In-->
+        <Grid Grid.Row="0" HorizontalAlignment="Center" Margin="0,340,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="btnSignIn" Content="Sign In" VerticalAlignment="Top" Padding="10, 5" Command="{Binding SignInCommand, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
     </Grid>
 </UserControl>
