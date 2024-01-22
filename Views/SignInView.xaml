@@ -7,27 +7,75 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1000">
 
-    <Grid>
-        <Image>
-            <Image.Source>
-                <BitmapImage UriSource="/Resources/page1.png" />
-            </Image.Source>
-        </Image>
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Name="Header" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Image Name="imgClip" Grid.Column="0" Height="121" Width="156" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Image.Source>
+                    <BitmapImage UriSource="/Resources/clips.png" />
+                </Image.Source>
+            </Image>
+            <Image Name="imgLogo" Grid.Column="1" Height="89" Width="342" Margin="0,50,50,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Image.Source>
+                    <BitmapImage UriSource="/Resources/AttendEase.png" />
+                </Image.Source>
+            </Image>
+        </Grid>
 
-        <Image Name="imgClip" Height="121" Width="156" Margin="0,0,844,479">
-            <Image.Source>
-                <BitmapImage UriSource="/Resources/clips.png" />
-            </Image.Source>
-        </Image>
+        <Grid Name="SignInBox" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <Border Name="brdSignInBG" Grid.Row="0" Background="#FF673CA7" Height="55" Width="240" CornerRadius="20,60,0,0" Margin="100,-10" HorizontalAlignment="Left">
+                <TextBlock 
+                    Name="txbSignIn" 
+                    Text="SIGN IN" 
+                    Padding="20,5,0,0" 
+                    FontSize="30" 
+                    FontWeight="Bold"
+                    Foreground="White" 
+                    HorizontalAlignment="Left"
+                    /> 
+            </Border>
+            <Border Name="brdSignInBox" Grid.Row="1" Background="#ffcd64" Height="300" Width="800" CornerRadius="0,0,0,0" Margin="100,10" HorizontalAlignment="Left">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" Margin="50,25">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid Name="Username" Grid.Row="0">
+                            <TextBlock Name="txbUsername"
+                                       Text="Username:" 
+                                       Grid.Row="0" 
+                                       Foreground="#5c4a3f"
+                                       FontSize="20"
+                                       FontWeight="Bold"/>
+                            <TextBox Grid.Row="1" 
+                                     Height="35"
+                                     Width="425" />
+                        </Grid>
 
-        <Image Name="imgLogo" Height="44" Width="306" Margin="574,74,120,482" >
-            <Image.Source>
-                <BitmapImage UriSource="/Resources/logo.png" />
-            </Image.Source>
-        </Image>
-
-        <Border Name="brdSignInBG" Background="#FF673CA7" CornerRadius="20,60,0,0" Margin="107,134,652,411" >
-            <TextBlock Text="Sign In" />
-        </Border>
+                    </Grid>
+                </Grid>
+                
+            </Border>
+        </Grid>
+        
     </Grid>
 </UserControl>
