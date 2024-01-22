@@ -8,6 +8,6 @@
         mc:Ignorable="d"
         Title="SignIn" Height="600" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <views:LookClassView DataContext="{Binding CurrentViewModel}"/>
+        <views:SignInView DataContext="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>
