@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace AttendanceMarker.Commands
 {
@@ -21,7 +22,17 @@ namespace AttendanceMarker.Commands
 
         public override void Execute(object? parameter)
         {
-            _credentials.LogIn(_signInViewModel.Username, _signInViewModel.Password);
+            Teacher? teacher = _credentials.LogIn(_signInViewModel.Username, _signInViewModel.Password);
+
+            if (teacher == null)
+            {
+                MessageBox.Show("The username or password may be incorrect.", "Incorrect credentials", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                MessageBox.Show($"Welcome, {teacher.TeacherName}!");
+                // Show next window
+            }
         }
     }
 }
