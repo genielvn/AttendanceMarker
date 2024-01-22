@@ -15,10 +15,6 @@
     <None Remove="Resources\page1.png" />
   </ItemGroup>
 
-  <ItemGroup> 
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
-
   <ItemGroup>
     <Resource Include="Resources\AttendEase.png" />
     <Resource Include="Resources\clips.png" />

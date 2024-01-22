@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AttendanceMarker.Models
 {
-    class Class
+    public class Class
     {
         public string ClassName { get; }
         private readonly List<Student> _students;

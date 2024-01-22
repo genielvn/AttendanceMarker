@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AttendanceMarker.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,9 @@ namespace AttendanceMarker.ViewModels
     {
         public ViewBaseModel CurrentViewModel { get; }
 
-        public MainViewModel()
+        public MainViewModel(CredentialHandler _credentials)
         {
-            CurrentViewModel = new SignInViewModel();
+            CurrentViewModel = new SignInViewModel(_credentials);
         }
     }
 }

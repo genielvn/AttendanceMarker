@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AttendanceMarker.Models
 {
-    class Attendance
+    public class Attendance
     {
         public DateTime Date { get; }
         public bool Present { get; set; }

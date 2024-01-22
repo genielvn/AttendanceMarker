@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AttendanceMarker.Models
 {
-    class CredentialHandler
+    public class CredentialHandler
     {
         private List<Credentials> _credentials;
 
@@ -28,6 +29,7 @@ namespace AttendanceMarker.Models
             {
                 if (profile.Match(username, password))
                 {
+                    Trace.WriteLine("You're in!");
                     return profile.GetTeacher();
                 }
             }
