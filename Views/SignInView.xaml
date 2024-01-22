@@ -6,7 +6,28 @@
              xmlns:local="clr-namespace:AttendanceMarker.Views"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1000">
+
     <Grid>
-        
+        <Image>
+            <Image.Source>
+                <BitmapImage UriSource="/Resources/page1.png" />
+            </Image.Source>
+        </Image>
+
+        <Image Name="imgClip" Height="121" Width="156" Margin="0,0,844,479">
+            <Image.Source>
+                <BitmapImage UriSource="/Resources/clips.png" />
+            </Image.Source>
+        </Image>
+
+        <Image Name="imgLogo" Height="44" Width="306" Margin="574,74,120,482" >
+            <Image.Source>
+                <BitmapImage UriSource="/Resources/logo.png" />
+            </Image.Source>
+        </Image>
+
+        <Border Name="brdSignInBG" Background="#FF673CA7" CornerRadius="20,60,0,0" Margin="107,134,652,411" >
+            <TextBlock Text="Sign In" />
+        </Border>
     </Grid>
 </UserControl>
