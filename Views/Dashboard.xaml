@@ -26,15 +26,15 @@
                        Text="January 24, 2023" 
                        HorizontalAlignment="Right" 
                        VerticalAlignment="Center"
-                       Margin="30"
+                       Margin="20"
                        FontWeight="Bold"
                        FontSize="20"/>
             <Button Name="btnShutdown" Grid.Column="2" 
                     Foreground="{x:Null}"
                     Background="{x:Null}"
                     BorderBrush="{x:Null}"
-                    Margin="20">
-                <Image Name="ShutdownImage">
+                    Margin="10">
+                <Image Name="ShutdownImage" Width="30" Height="30">
                     <Image.Source>
                         <BitmapImage UriSource="/Resources/power.png" />
                     </Image.Source>
@@ -50,8 +50,13 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0" Margin="44, 20">
-                    <Ellipse Height="60" Width="60" Fill="red"></Ellipse>
+                <Grid Grid.Row="0" Margin="30,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Ellipse Grid.Row="0" Height="60" Width="60" Fill="red" HorizontalAlignment="Center" VerticalAlignment="Center"></Ellipse>
+                    <TextBlock Grid.Row="1" Text="Name" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10" FontSize="12" FontWeight="Medium"/>
                 </Grid>
             </Grid>
         </Grid>
