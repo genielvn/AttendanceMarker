@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AttendanceMarker.Views"
+                     xmlns:views="clr-namespace:AttendanceMarker.Views"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1000">
 
@@ -63,7 +64,6 @@
                         <BitmapImage UriSource="/Resources/power.png" />
                     </Image.Source>
                 </Image>
-                
             </Button>
         </Grid>
         <Grid Name="Content" Grid.Row="1">
@@ -83,6 +83,9 @@
                     <Ellipse x:Name="Picture" Grid.Row="0" Height="60" Width="60" Fill="red" HorizontalAlignment="Center" VerticalAlignment="Center"></Ellipse>
                     <TextBlock x:Name="Name" Grid.Row="1" Text="Name" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10" FontSize="12" FontWeight="Medium"/>
                 </Grid>
+            </Grid>
+            <Grid x:Name="Content1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <views:Classes DataContext="{Binding CurrentViewModel}"/>
             </Grid>
         </Grid>
     </Grid>
