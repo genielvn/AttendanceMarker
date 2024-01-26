@@ -6,26 +6,54 @@
              xmlns:local="clr-namespace:AttendanceMarker.Views"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1000">
-    <Grid>
+    <Grid Name="Main">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Background="#ffcd64">
+        <Grid Name="Header" Grid.Row="0" Background="#ffcd64">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Image Grid.Column="0" Margin="20">
+            <Image Name="Logo" Grid.Column="0" Margin="20" Width="112" Height="23">
                 <Image.Source>
                     <BitmapImage UriSource="/Resources/logo.png" />
                 </Image.Source>
             </Image>
-                <TextBlock Text="Date" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <Button Content="ShutDown" Grid.Column="2">
-                    
-                </Button>
+            <TextBlock Name="txbDate" Grid.Column="1" 
+                       Text="January 24, 2023" 
+                       HorizontalAlignment="Right" 
+                       VerticalAlignment="Center"
+                       Margin="30"
+                       FontWeight="Bold"
+                       FontSize="20"/>
+            <Button Name="btnShutdown" Grid.Column="2" 
+                    Foreground="{x:Null}"
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Margin="20">
+                <Image Name="ShutdownImage">
+                    <Image.Source>
+                        <BitmapImage UriSource="/Resources/power.png" />
+                    </Image.Source>
+                </Image>
+            </Button>
+        </Grid>
+        <Grid Name="Content" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid Name="Sidebar" Grid.Column="0" Background="#ffcd64">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="44, 20">
+                    <Ellipse Height="60" Width="60" Fill="red"></Ellipse>
+                </Grid>
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>
