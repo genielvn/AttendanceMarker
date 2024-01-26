@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:AttendanceMarker.Views"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1000">
+
     <UserControl.Resources>
         <Style x:Key="RemoveHover" TargetType="Button">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -62,6 +63,7 @@
                         <BitmapImage UriSource="/Resources/power.png" />
                     </Image.Source>
                 </Image>
+                
             </Button>
         </Grid>
         <Grid Name="Content" Grid.Row="1">
@@ -73,13 +75,13 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0" Margin="30,10">
+                <Grid x:Name="Profile_Name" Grid.Row="0" Margin="30,10">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Ellipse Grid.Row="0" Height="60" Width="60" Fill="red" HorizontalAlignment="Center" VerticalAlignment="Center"></Ellipse>
-                    <TextBlock Grid.Row="1" Text="Name" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10" FontSize="12" FontWeight="Medium"/>
+                    <Ellipse x:Name="Picture" Grid.Row="0" Height="60" Width="60" Fill="red" HorizontalAlignment="Center" VerticalAlignment="Center"></Ellipse>
+                    <TextBlock x:Name="Name" Grid.Row="1" Text="Name" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10" FontSize="12" FontWeight="Medium"/>
                 </Grid>
             </Grid>
         </Grid>
