@@ -6,6 +6,28 @@
              xmlns:local="clr-namespace:AttendanceMarker.Views"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <Style x:Key="RemoveHover" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                        BorderBrush="{x:Null}" 
+                        Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="{x:Null}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
     <Grid Name="Main">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -33,7 +55,8 @@
                     Foreground="{x:Null}"
                     Background="{x:Null}"
                     BorderBrush="{x:Null}"
-                    Margin="10">
+                    Margin="10"
+                    Style="{StaticResource RemoveHover}">
                 <Image Name="ShutdownImage" Width="30" Height="30">
                     <Image.Source>
                         <BitmapImage UriSource="/Resources/power.png" />
