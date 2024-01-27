@@ -6,7 +6,11 @@
              xmlns:local="clr-namespace:AttendanceMarker.Views"
              mc:Ignorable="d" 
              d:DesignHeight="515" d:DesignWidth="880">
-    <Grid Margin="40,45">
-        <TextBlock Text="Test">
+    <Grid Margin="50,10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Classes" FontWeight="Medium" FontSize="60"/>
     </Grid>
 </UserControl>
