@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AttendanceMarker.Models
 {
-    class Class
+    public class Class
     {
         public string ClassName { get; }
         public string Schedule { get; } 
@@ -31,6 +31,11 @@ namespace AttendanceMarker.Models
         {
             return obj is Class _class &&
                 _class.ClassName == ClassName;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(ClassName, _students);
         }
 
         public override string ToString()

@@ -14,11 +14,12 @@ namespace AttendanceMarker
         protected override void OnStartup(StartupEventArgs e)
         {
             CredentialHandler credentials = new CredentialHandler();
+            credentials.SignUp("admin", "password", "Admin");
             credentials.SignUp("smilie", "test_password", "Mr. Smilie");
 
             MainWindow = new MainWindow()
             {
-                DataContext = new MainViewModel()
+                DataContext = new MainViewModel(credentials)
             };
             MainWindow.Show();
             base.OnStartup(e);
