@@ -24,11 +24,11 @@ namespace AttendanceMarker.ViewModels
         }
         public ICommand LogOutCommand { get; }
         public ICommand GoToClassDashboardCommand{ get; }
-        public ViewBaseModel CurrentDashboardModel { get; }
+        public ViewBaseModel CurrentDashboardViewModel { get; }
 
         public DashboardViewModel()
         {
-
+            CurrentDashboardViewModel = new ClassesViewModel();
         }
     }
 }

@@ -98,7 +98,7 @@
                 </Border>
             </Grid>
             <Grid x:Name="Content1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <views:Classes /> <!-- Provide Data Context here -->
+                <views:Classes DataContext="{Binding CurrentDashboardViewModel}"/> <!-- Provide Data Context here -->
             </Grid>
         </Grid>
     </Grid>
