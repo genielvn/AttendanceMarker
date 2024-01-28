@@ -1,4 +1,5 @@
 ﻿using AttendanceMarker.Models;
+using AttendanceMarker.Stores;
 using AttendanceMarker.ViewModels;
 using System.Configuration;
 using System.Data;
@@ -11,15 +12,25 @@ namespace AttendanceMarker
     /// </summary>
     public partial class App : Application
     {
-        protected override void OnStartup(StartupEventArgs e)
+        private readonly CredentialHandler credentials;
+        private readonly NavigationStore _navigationStore;
+
+        public App()
         {
-            CredentialHandler credentials = new CredentialHandler();
+            credentials = new CredentialHandler();
             credentials.SignUp("admin", "password", "Admin");
             credentials.SignUp("smilie", "test_password", "Mr. Smilie");
 
+            _navigationStore = new NavigationStore();
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            _navigationStore.CurrentViewModel = new SignInViewModel(credentials, _navigationStore);
+
             MainWindow = new MainWindow()
             {
-                DataContext = new MainViewModel(credentials)
+                DataContext = new MainViewModel(_navigationStore)
             };
             MainWindow.Show();
             base.OnStartup(e);

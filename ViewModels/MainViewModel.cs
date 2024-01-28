@@ -1,4 +1,5 @@
 ﻿using AttendanceMarker.Models;
+using AttendanceMarker.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,19 @@ namespace AttendanceMarker.ViewModels
 {
     class MainViewModel : ViewBaseModel
     {
-        public ViewBaseModel CurrentViewModel { get; }
+        private readonly NavigationStore _navigationStore;
+        public ViewBaseModel CurrentViewModel => _navigationStore.CurrentViewModel;
 
-        public MainViewModel(CredentialHandler _credentials)
+        public MainViewModel(NavigationStore navigationStore)
         {
-            CurrentViewModel = new SignInViewModel(_credentials);
+            _navigationStore = navigationStore;
+
+            _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
+        }
+
+        private void OnCurrentViewModelChanged()
+        {
+            OnPropertyChanged(nameof(CurrentViewModel));
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AttendanceMarker.Commands;
 using AttendanceMarker.Models;
+using AttendanceMarker.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,9 +44,9 @@ namespace AttendanceMarker.ViewModels
 		public ICommand SignUpCommand { get; }
 		public ICommand ForgotPasswordCommand { get; }
 
-        public SignInViewModel(CredentialHandler _credentials)
+        public SignInViewModel(CredentialHandler _credentials, NavigationStore navigationStore)
         {
-			SignInCommand = new SignInCommand(this, _credentials);
+			SignInCommand = new SignInCommand(this, _credentials, navigationStore);
         }
     }
 }
