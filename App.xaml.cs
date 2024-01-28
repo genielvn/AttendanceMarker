@@ -18,8 +18,9 @@ namespace AttendanceMarker
         public App()
         {
             credentials = new CredentialHandler();
-            credentials.SignUp("admin", "password", "Admin");
             credentials.SignUp("smilie", "test_password", "Mr. Smilie");
+            credentials.GetOneSample().AddClass(new Class(
+                "BSCS 3-2", "COSC 30013: Subject Name", "M/F - 8:00 - 10:00"));
 
             _navigationStore = new NavigationStore();
         }
