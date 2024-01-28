@@ -8,6 +8,6 @@
         mc:Ignorable="d"
         Title="AttendEase" Height="600" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <views:Dashboard DataContext="{Binding CurrentViewModel}"/>
+        <views:DashboardView DataContext="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>
