@@ -36,7 +36,7 @@ namespace AttendanceMarker.Models
             return null;
         }
 
-        public Teacher GetOneSample()
+        public Teacher GetOneTeacherSample()
         {
             return _credentials.First().GetTeacher();
         }

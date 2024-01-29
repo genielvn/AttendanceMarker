@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AttendanceMarker.Views;
 
 namespace AttendanceMarker.Models
 {
@@ -43,6 +44,11 @@ namespace AttendanceMarker.Models
         public override string ToString()
         {
             return ClassID;
+        }
+
+        public Student GetOneStudenSample()
+        {
+            return _students.First();
         }
     }
 }

@@ -25,5 +25,10 @@ namespace AttendanceMarker.Models
         {
             return _classes;
         }
+
+        public Class GetOneClassSample()
+        {
+            return _classes.First();
+        }
     }
 }
