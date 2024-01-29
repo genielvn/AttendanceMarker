@@ -43,10 +43,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Text="Classes" FontWeight="Medium" FontSize="60" Margin="50,10"/>
-        <ListView Grid.Row="1" Height="385" Width="820" Margin="20,0,20,10" Foreground="#000000" SelectionMode="Single" SelectedIndex="{Binding SelectIndex, UpdateSourceTrigger=PropertyChanged}">
-            <ListViewItem />
-            <ListViewItem />
-            <ListViewItem />
+        <ListView Grid.Row="1" Height="385" Width="820" Margin="20,0,20,10" Foreground="#000000" SelectionMode="Single" SelectedIndex="{Binding SelectIndex, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ClassesTable}">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="Background" Value="#dad9d7" />
@@ -60,21 +57,28 @@
                     <GridViewColumn Header="Class" Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="BSCS 3-2" />
+                                <TextBlock Text="{Binding ClassID}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Students" Width="100">
+                    <GridViewColumn Header="Subject Name" Width="200">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="31" />
+                                <TextBlock Text="{Binding SubjectName}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Schedule" Width="200">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="M/F 8:00 - 10:00" />
+                                <TextBlock Text="{Binding Schedule}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Students" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding NumberOfStudents}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -89,11 +93,12 @@
         HorizontalAlignment="Right" 
         VerticalAlignment="Bottom">
             <Button Content="ADD CLASS" Style="{StaticResource RemoveHover}"
-            FontSize="18"
-            FontWeight="Bold"
-            Height="Auto"
-            Width="Auto"
-            Foreground="#50413c"/>
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Height="Auto"
+                    Width="Auto"
+                    Foreground="#50413c"
+                    Command="{Binding AddClassCommand}"/>
         </Border>
     </Grid>
 </UserControl>
