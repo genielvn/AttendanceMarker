@@ -18,6 +18,7 @@ namespace AttendanceMarker.Commands
         }
         public override void Execute(object? parameter)
         {
+            // Change screen to AddClass instead
             _dashboardNavigationStore.CurrentViewModel = new StudentViewModel();
         }
     }

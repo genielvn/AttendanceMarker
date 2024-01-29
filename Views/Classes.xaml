@@ -43,7 +43,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Text="Classes" FontWeight="Medium" FontSize="60" Margin="50,10"/>
-        <ListView Grid.Row="1" Height="385" Width="820" Margin="20,0,20,10" Foreground="#000000" SelectionMode="Single" SelectedIndex="{Binding SelectIndex, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ClassesTable}">
+        <ListView x:Name="lsvClasses" Grid.Row="1" Height="385" Width="820" Margin="20,0,20,10" Foreground="#000000" SelectionMode="Single" ItemsSource="{Binding ClassesTable}" SelectedIndex="{Binding SelectIndex, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedClass}">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="Background" Value="#dad9d7" />
@@ -92,7 +92,7 @@
         Background="#f5834d" 
         HorizontalAlignment="Right" 
         VerticalAlignment="Bottom">
-            <Button Content="CHANGE_TEST" Style="{StaticResource RemoveHover}"
+            <Button Content="ADD CLASS" Style="{StaticResource RemoveHover}"
                     FontSize="18"
                     FontWeight="Bold"
                     Height="Auto"
