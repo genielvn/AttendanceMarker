@@ -6,7 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using AttendanceMarker.Commands;
 using AttendanceMarker.Models;
+using AttendanceMarker.Stores;
 using AttendanceMarker.Views;
 
 namespace AttendanceMarker.ViewModels
@@ -32,7 +34,7 @@ namespace AttendanceMarker.ViewModels
         }
 
         public ICommand AddClassCommand { get; }
-        public ClassesViewModel(IEnumerable<Class> classes)
+        public ClassesViewModel(IEnumerable<Class> classes, NavigationStore dashboardNavigationStore)
         {
             _classes = new ObservableCollection<ClassTableViewModel>();
 
@@ -42,6 +44,8 @@ namespace AttendanceMarker.ViewModels
             {
                 _classes.Add(new ClassTableViewModel(enumerator.Current));
             }
+
+            AddClassCommand = new AddClassCommand(dashboardNavigationStore);
         }
     }
 }

@@ -92,7 +92,7 @@
         Background="#f5834d" 
         HorizontalAlignment="Right" 
         VerticalAlignment="Bottom">
-            <Button Content="ADD CLASS" Style="{StaticResource RemoveHover}"
+            <Button Content="CHANGE_TEST" Style="{StaticResource RemoveHover}"
                     FontSize="18"
                     FontWeight="Bold"
                     Height="Auto"

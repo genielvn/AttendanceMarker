@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AttendanceMarker.Views"
-                     xmlns:views="clr-namespace:AttendanceMarker.Views"
+             xmlns:views="clr-namespace:AttendanceMarker.Views"
+             xmlns:vms="clr-namespace:AttendanceMarker.ViewModels" 
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1000">
 
@@ -98,7 +99,19 @@
                 </Border>
             </Grid>
             <Grid x:Name="Content1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <views:Classes DataContext="{Binding CurrentDashboardViewModel}"/> <!-- Provide Data Context here -->
+                <Grid.Resources>
+                    <DataTemplate DataType="{x:Type vms:ClassesViewModel}">
+                        <views:Classes />
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type vms:StudentViewModel}">
+                        <views:Students />
+                    </DataTemplate>
+                </Grid.Resources>
+
+                <ContentControl Content="{Binding CurrentDashboardViewModel}" />
+                <!--
+                <views:Classes DataContext="{Binding CurrentDashboardViewModel}"/>
+                -->
             </Grid>
         </Grid>
     </Grid>

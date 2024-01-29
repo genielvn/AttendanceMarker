@@ -34,9 +34,8 @@ namespace AttendanceMarker.Commands
             }
 
             MessageBox.Show($"Welcome, {teacher.TeacherName}!");
-            _navigationStore.CurrentViewModel = new DashboardViewModel(teacher);
+            _navigationStore.CurrentViewModel = new DashboardViewModel(teacher, new NavigationStore());
 
-            // TODO: Implement Classes passing in Dashboard
         }
 
     }
