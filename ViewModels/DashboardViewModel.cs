@@ -8,7 +8,7 @@ using AttendanceMarker.Models;
 
 namespace AttendanceMarker.ViewModels
 {
-    class DashboardViewModel : ViewBaseModel
+    class DashboardViewModel : ViewModelBase
     {
         private readonly Teacher _teacher;
 

@@ -11,7 +11,7 @@ using AttendanceMarker.Views;
 
 namespace AttendanceMarker.ViewModels
 {
-    public class ClassesViewModel: ViewBaseModel
+    public class ClassesViewModel: ViewModelBase
     {
         private readonly ObservableCollection<ClassTableViewModel> _classes;
 

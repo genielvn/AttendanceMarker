@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace AttendanceMarker.ViewModels
 {
-    public class SignInViewModel : ViewBaseModel
+    public class SignInViewModel : ViewModelBase
     {
 		private string _username;
 		public string Username

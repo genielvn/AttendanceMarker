@@ -9,8 +9,8 @@ namespace AttendanceMarker.Stores
 {
     public class NavigationStore
     {
-        private ViewBaseModel _currentViewModel;
-        public ViewBaseModel CurrentViewModel
+        private ViewModelBase _currentViewModel;
+        public ViewModelBase CurrentViewModel
         {
             get => _currentViewModel;
             set

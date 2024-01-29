@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AttendanceMarker.ViewModels
 {
-    public class ViewBaseModel : INotifyPropertyChanged
+    public class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 

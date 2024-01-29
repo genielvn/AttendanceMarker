@@ -7,7 +7,7 @@ using AttendanceMarker.Models;
 
 namespace AttendanceMarker.ViewModels
 {
-    public class ClassTableViewModel : ViewBaseModel
+    public class ClassTableViewModel : ViewModelBase
     {
         public readonly Class _class;
         public string ClassID => _class.ClassID;
