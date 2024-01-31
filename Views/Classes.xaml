@@ -43,7 +43,9 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Text="Classes" FontWeight="Medium" FontSize="60" Margin="50,10"/>
-        <ListView x:Name="lsvClasses" Grid.Row="1" Height="385" Width="820" Margin="20,0,20,10" Foreground="#000000" SelectionMode="Single" ItemsSource="{Binding ClassesTable}" SelectedIndex="{Binding SelectIndex, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedClass}">
+        <ListView x:Name="lsvClasses" Grid.Row="1" Height="385" Width="820" Margin="20,0,20,10" Foreground="#000000" SelectionMode="Single" ItemsSource="{Binding ClassesTable}" SelectedIndex="{Binding SelectIndex, UpdateSourceTrigger=PropertyChanged}">
+            <!-- DONT REMOVE THE SELECTEDITEM BINDING HERE. idk why, but the SelectedIndex also just disappears when removed. -->
+            <!-- Okay, nvm, it works. -->
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="Background" Value="#dad9d7" />
