@@ -50,7 +50,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Subject" Padding="10,10,0,0" FontSize="16"/>
-            <TextBlock Grid.Row="1" Text="Automata and Language Theory" Padding="10,4"
+            <TextBlock Grid.Row="1" Text="{Binding SubjectName}" Padding="10,4"
                        FontSize="24"/>
         </Grid>
         <Grid Grid.Row="1" Background="#f9f5ec">
@@ -58,8 +58,8 @@
                 <ColumnDefinition Width="300"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Text="Section: BSCS 3-2" Padding="10,5" FontSize="16"/>
-            <TextBlock Grid.Column="1" Text="Schedule: M/F 8:00 - 10:00" Padding="10,5" FontSize="16"/>
+            <TextBlock Grid.Column="0" Text="{Binding Class}" Padding="10,5" FontSize="16"/>
+            <TextBlock Grid.Column="1" Text="{Binding Schedule}" Padding="10,5" FontSize="16"/>
         </Grid>
         <Grid Grid.Row="2" Width="880" Background="#f5834d">
             <TextBlock Grid.Column="1" Text="C L A S S   L I S T" Padding="10,5" FontSize="24" FontWeight="Medium" HorizontalAlignment="Center"/>
