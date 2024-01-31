@@ -46,7 +46,7 @@ namespace AttendanceMarker.Models
             return ClassID;
         }
 
-        public Student GetOneStudenSample()
+        public Student GetOneStudentSample()
         {
             return _students.First();
         }
