@@ -15,12 +15,12 @@ namespace AttendanceMarker.ViewModels
 {
     public class ClassesViewModel: ViewModelBase
     {
+        public List<Class> Classes;
         private readonly ObservableCollection<ClassTableViewModel> _classes;
         private readonly NavigationStore _dashboardNavigationStore;
 
         private int _selectIndex;
 
-        public List<Class> Classes;
         public int SelectIndex 
         {
             get =>  _selectIndex;
@@ -29,7 +29,8 @@ namespace AttendanceMarker.ViewModels
                 _selectIndex = value;
                 OnPropertyChanged(nameof(_selectIndex));
                 if (_selectIndex == -1) return;
-                _dashboardNavigationStore.CurrentViewModel = new StudentViewModel(Classes.ElementAt(_selectIndex).GetStudents());
+                _dashboardNavigationStore.CurrentViewModel = new StudentViewModel(Classes.ElementAt(_selectIndex).GetStudents(), 
+                                                                                  _dashboardNavigationStore, Classes.ElementAt(SelectIndex));
             } 
         }
 
@@ -52,14 +53,8 @@ namespace AttendanceMarker.ViewModels
             _dashboardNavigationStore = dashboardNavigationStore;
             Classes = classes;
 
-
-            //Class to_add = new Class("BSIT 1-3", "Computer Programming 1", "M/T 8:00 16:00");
-            //Classes.Add(to_add);
-
             IEnumerable<Class> IClassEnumerable = classes;
             IEnumerator<Class> class_enumerate = IClassEnumerable.GetEnumerator();
-
-            //IEnumerator<Class> enumerator = classes.GetEnumerator();
 
             while (class_enumerate.MoveNext())
             {

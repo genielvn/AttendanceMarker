@@ -64,7 +64,7 @@
         <Grid Grid.Row="2" Width="880" Background="#f5834d">
             <TextBlock Grid.Column="1" Text="C L A S S   L I S T" Padding="10,5" FontSize="24" FontWeight="Medium" HorizontalAlignment="Center"/>
         </Grid>
-        <ListView Grid.Row="3" Height="375" Width="880" Foreground="#000000" SelectionMode="Single">
+        <ListView Grid.Row="3" Height="375" Width="880" Foreground="#000000" SelectionMode="Single" ItemsSource="{Binding StudentTable}">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="Background" Value="#dad9d7" />
@@ -78,14 +78,14 @@
                     <GridViewColumn Header="Name" Width="500">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="Smilie Pop" />
+                                <TextBlock Text="{Binding StudentName}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Student ID" Width="350">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="2021-10945-MN-0" />
+                                <TextBlock Text="{Binding StudentID}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -105,6 +105,21 @@
                     Height="Auto"
                     Width="Auto"
                     Foreground="#50413c"/>
+        </Border>
+        <Border Grid.Row="3" 
+        Width="230" 
+        Height="35" 
+        CornerRadius="0,40,0,0" 
+        Background="#f5834d" 
+        HorizontalAlignment="Left" 
+        VerticalAlignment="Bottom">
+            <Button Content="RETURN TO CLASS LIST" Style="{StaticResource RemoveHover}"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Height="Auto"
+                    Width="Auto"
+                    Foreground="#50413c"
+                    Command="{Binding ReturnCommand}"/>
         </Border>
     </Grid>
 </UserControl>

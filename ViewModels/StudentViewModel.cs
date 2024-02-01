@@ -1,17 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using AttendanceMarker.Models;
+using AttendanceMarker.Stores;
 using AttendanceMarker.Views;
 
 namespace AttendanceMarker.ViewModels
 {
     public class StudentViewModel : ViewModelBase
     {
-        private IEnumerable<Student> _students;
+        public List<Student> Students;
+        private readonly ObservableCollection<StudentTableViewModel> _students;
+        private readonly NavigationStore _dashboardNavigationStore;
+        private readonly Class _currentClass;
+        public IEnumerable<StudentTableViewModel> StudentTable => _students;
+
 
         private string _subjectName;
         public string SubjectName
@@ -45,11 +52,27 @@ namespace AttendanceMarker.ViewModels
             }
         }
         public ICommand AddStudent { get; }
+        public ICommand ReturnCommand { get; }
         public ICommand StartAttendance { get; }
 
-        public StudentViewModel(IEnumerable<Student> students) 
+        public StudentViewModel(List<Student> students, NavigationStore dashboardNavigationStore, Class currentClass) 
         {
-            _students = students;
+            _students = new ObservableCollection<StudentTableViewModel>();
+            _dashboardNavigationStore = dashboardNavigationStore;
+            Students = students;
+            _currentClass = currentClass;
+
+            _subjectName = currentClass.SubjectName;
+            _schedule = currentClass.Schedule;
+            _class = currentClass.ClassID;
+
+            IEnumerable<Student> IEnumerableStudents = students;
+            IEnumerator<Student> student_enumerator = IEnumerableStudents.GetEnumerator();
+
+            while (student_enumerator.MoveNext())
+            {
+                _students.Add(new StudentTableViewModel(student_enumerator.Current));
+            }
         }
 
     }
