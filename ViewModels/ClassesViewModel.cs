@@ -52,6 +52,7 @@ namespace AttendanceMarker.ViewModels
             _classes = new ObservableCollection<ClassTableViewModel>();
             _dashboardNavigationStore = dashboardNavigationStore;
             Classes = classes;
+            _selectIndex = -1;
 
             IEnumerable<Class> IClassEnumerable = classes;
             IEnumerator<Class> class_enumerate = IClassEnumerable.GetEnumerator();
