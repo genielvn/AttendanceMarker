@@ -34,25 +34,16 @@ namespace AttendanceMarker.ViewModels
             } 
         }
 
-        //private ClassTableViewModel _selectedClass;
-        //public ClassTableViewModel SelectedClass
-        //{
-        //    get => _selectedClass;
-        //    set
-        //    {
-        //        _selectedClass = value;
-        //        OnPropertyChanged(nameof(_selectedClass));
-        //    }
-        //}
-
         public IEnumerable<ClassTableViewModel> ClassesTable => _classes;
         public ICommand AddClassCommand { get; }
+
         public ClassesViewModel(List<Class> classes, NavigationStore dashboardNavigationStore)
         {
             _classes = new ObservableCollection<ClassTableViewModel>();
             _dashboardNavigationStore = dashboardNavigationStore;
             Classes = classes;
             _selectIndex = -1;
+
 
             IEnumerable<Class> IClassEnumerable = classes;
             IEnumerator<Class> class_enumerate = IClassEnumerable.GetEnumerator();
