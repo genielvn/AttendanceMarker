@@ -48,7 +48,7 @@
                 </Image.Source>
             </Image>
             <TextBlock Name="txbDate" Grid.Column="1" 
-                       Text="January 24, 2023" 
+                       Text="{Binding Today}" 
                        HorizontalAlignment="Right" 
                        VerticalAlignment="Center"
                        Margin="20"

@@ -20,6 +20,7 @@ namespace AttendanceMarker.ViewModels
         public string TeacherName => _teacher.TeacherName;
         public ICommand LogOutCommand { get; }
         public ICommand GoToClassDashboardCommand { get; }
+        public string Today => DateTime.Now.ToString("MMMM dd, yyyy");
 
         public DashboardViewModel(Teacher teacher, CredentialHandler credentials, NavigationStore currentNavigationStore, NavigationStore dashboardNavigationStore)
         {
