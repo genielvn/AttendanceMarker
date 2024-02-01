@@ -1,0 +1,204 @@
+﻿<UserControl x:Class="AttendanceMarker.Views.SignUpView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AttendanceMarker.Views"
+             Background="#FFF0F0F0"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1000">
+
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" /> 
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Name="Header" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Image Name="imgClip" Grid.Column="0" Height="121" Width="156" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Image.Source>
+                    <BitmapImage UriSource="/Resources/clips.png" />
+                </Image.Source>
+            </Image>
+            <Image Name="imgLogo" Grid.Column="1" Height="89" Width="342" Margin="0,50,50,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Image.Source>
+                    <BitmapImage UriSource="/Resources/AttendEase.png" />
+                </Image.Source>
+            </Image>
+        </Grid>
+
+        <Grid Name="SignIn" Grid.Row="1" Margin="0,-10,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border Name="brdSignInBG" Grid.Row="0" Background="#FF673CA7" Height="55" Width="240" CornerRadius="20,60,0,0" Margin="100,0" HorizontalAlignment="Left">
+                <TextBlock 
+                    Name="txbSignIn" 
+                    Text="SIGN UP" 
+                    Padding="20,5,0,0" 
+                    FontSize="30" 
+                    FontWeight="Bold"
+                    Foreground="White" 
+                    HorizontalAlignment="Left"
+                    />
+            </Border>
+            <Border Name="brdSignInBoxPurple" Grid.Row="1" Background="#41305a" Height="334" Width="800" CornerRadius="0,40,0,0" Margin="100,0" HorizontalAlignment="Left" />
+            <Border Name="brdSignInBox" Grid.Row="1" Background="#ffcd64" Height="334" Width="800" CornerRadius="0,40,200,0" Margin="100,0" HorizontalAlignment="Left">
+                <Grid Name="SignInBox">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid Name="InputCredentials" Grid.Column="0" Margin="25,10,50,25">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <TextBlock Name="createAcc"
+                                       Text="Create Account"
+                                       Foreground="#5c4a3f"
+                                       FontSize="30"
+                                       FontWeight="Bold"
+                                       />
+                        </Grid>
+                        <Grid Name="Username" Grid.Row="1" Margin="25,0,0,0">
+                            <TextBlock Name="txbUsername"
+                                       Text="Username:" 
+                                       Grid.Row="0" 
+                                       Foreground="#5c4a3f"
+                                       FontSize="20"
+                                       FontWeight="Bold"    
+                                       />
+                            <TextBox Name="txtUsername"
+                                     Height="35"
+                                     Width="380" 
+                                     VerticalContentAlignment="Center"
+                                     Padding="10,0" Margin="0,30,45,0"
+                                     Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}">
+                                <!-- https://stackoverflow.com/questions/4779777/wpf-rounded-corner-textbox -->
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="4"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                        </Grid>
+                        <Grid Name="Password" Grid.Row="2" Margin="25,0,0,0">
+                            <TextBlock Name="txbPassword"
+                                       Text="Password:" 
+                                       Grid.Row="0" 
+                                       Foreground="#5c4a3f"
+                                       FontSize="20"
+                                       FontWeight="Bold"    
+                                       />
+                            <TextBox Name="txtPassword"
+                                     Height="35"
+                                     Width="380" 
+                                     VerticalContentAlignment="Center"
+                                     Padding="10,0" Margin="0,30,45,0"
+                                     Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}">
+                                <!-- https://stackoverflow.com/questions/4779777/wpf-rounded-corner-textbox -->
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="4"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                        </Grid>
+                        <Grid Name="retypePassword" Grid.Row="3" Margin="25,0,0,0">
+                            <TextBlock Name="passwordConfirmationBlock"
+                                       Text="Re-type Password:" 
+                                       Grid.Row="0" 
+                                       Foreground="#5c4a3f"
+                                       FontSize="20"
+                                       FontWeight="Bold"    
+                                       />
+                            <TextBox Name="passwordConfirmation"
+                                     Height="35"
+                                     Width="380"
+                                     VerticalContentAlignment="Center"
+                                     Padding="10,0" Margin="0,30,45,0"
+                                     Text="{Binding RetypePassword, UpdateSourceTrigger=PropertyChanged}">
+                                <!-- https://stackoverflow.com/questions/4779777/wpf-rounded-corner-textbox -->
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="4"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                        </Grid>
+                        <Grid Name="Confirm" Grid.Row="4" HorizontalAlignment="Left" Margin="25,0,0,0">
+                            <Button Name="btnSignUp" 
+                                    Content="Create Account" 
+                                    Background="#f5834d" 
+                                    Foreground="#57443d" 
+                                    BorderBrush="{x:Null}"
+                                    FontSize="25"
+                                    FontWeight="Bold"
+                                    Width="380"
+                                    Height="40" 
+                                    HorizontalAlignment="Center" 
+                                    VerticalAlignment="Top"
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    Padding="0,0,0,0"
+                                    Margin="0,13,0,0"
+                                    Command="{Binding CreateAccountCommand}" Click="btnSignUp_Click">
+                                <Button.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="7"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBlock Name="txbNewAccount" Grid.Row="0" 
+                                   Text="Already have an account?"
+                                   Foreground="#5c4a3f"
+                                   FontSize="20"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"/>
+                        <Button Name="btnSignIn" Grid.Row="1" 
+                                Content="SIGN IN" 
+                                Background="#f5834d" 
+                                Foreground="#57443d" 
+                                BorderBrush="{x:Null}"
+                                FontSize="35"
+                                FontWeight="Bold"
+                                Width="200"
+                                Height="60" 
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Top"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                Margin="0,10"
+                                Command="{Binding NavigateSignInCommand}">
+
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="7"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>
