@@ -59,7 +59,8 @@
                     Background="{x:Null}"
                     BorderBrush="{x:Null}"
                     Width="50"
-                    Style="{StaticResource RemoveHover}">
+                    Style="{StaticResource RemoveHover}"
+                    Command="{Binding LogOutCommand}">
                 <Image Name="ShutdownImage" Width="30" Height="30">
                     <Image.Source>
                         <BitmapImage UriSource="/Resources/power.png" />
