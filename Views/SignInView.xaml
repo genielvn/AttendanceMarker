@@ -155,7 +155,7 @@
                                 HorizontalContentAlignment="Center"
                                 VerticalContentAlignment="Center"
                                 Margin="0,10"
-                                Command="{Binding SignUpCommand}">
+                                Command="{Binding NavigateSignUpCommand}">
 
                             <Button.Resources>
                                 <Style TargetType="{x:Type Border}">
