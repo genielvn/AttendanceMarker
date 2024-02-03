@@ -43,9 +43,13 @@ namespace AttendanceMarker.ViewModels
 		public ICommand SignInCommand { get; }
 		public ICommand NavigateSignUpCommand { get; }
 
-        public SignInViewModel(NavigationStore navigationStore, CredentialHandler _credentials, Func<SignUpViewModel> createSignUpViewModel)
-        {
-			SignInCommand = new SignInCommand(this, _credentials);
+        public SignInViewModel(
+			NavigationStore navigationStore, 
+			CredentialHandler _credentials, 
+			Func<SignUpViewModel> createSignUpViewModel,
+			Func<Teacher, DashboardViewModel> createDashboardViewModel
+		) {
+			SignInCommand = new SignInCommand(this, _credentials, navigationStore, createDashboardViewModel);
 			NavigateSignUpCommand = new NavigateCommand(navigationStore, createSignUpViewModel);
         }
     }

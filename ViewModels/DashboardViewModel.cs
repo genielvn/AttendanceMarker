@@ -11,6 +11,7 @@ using AttendanceMarker.Stores;
 namespace AttendanceMarker.ViewModels
 {
     class DashboardViewModel : ViewModelBase
+    public class DashboardViewModel : ViewModelBase
     {
         private readonly Teacher _teacher;
         private readonly CredentialHandler _credentials;

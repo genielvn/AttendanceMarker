@@ -36,13 +36,18 @@ namespace AttendanceMarker
 
         private SignInViewModel CreateSignInViewModel()
         {
-            return new SignInViewModel(_navigationStore, _credentials, CreateSignUpViewModel);
+            return new SignInViewModel(_navigationStore, _credentials, CreateSignUpViewModel, CreateDashboardViewModel);
         }
 
         private SignUpViewModel CreateSignUpViewModel()
         {
             return new SignUpViewModel(_navigationStore, _credentials, CreateSignInViewModel);
         }
+        private DashboardViewModel CreateDashboardViewModel(Teacher teacher)
+        {
+            return new DashboardViewModel(teacher, _credentials, _navigationStore) ;
+        }
+
     }
 
 }
