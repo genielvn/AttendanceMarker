@@ -12,9 +12,9 @@ namespace AttendanceMarker.Commands
     class NavigateCommand : CommandBase
     {
         private readonly NavigationStore _navigationStore;
-        private readonly Func<ViewBaseModel> _createViewModel;
+        private readonly Func<ViewModelBase> _createViewModel;
 
-        public NavigateCommand(NavigationStore navigationStore, Func<ViewBaseModel> createViewModel)
+        public NavigateCommand(NavigationStore navigationStore, Func<ViewModelBase> createViewModel)
         {
             _navigationStore = navigationStore;
             _createViewModel = createViewModel;
