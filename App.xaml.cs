@@ -12,27 +12,19 @@ namespace AttendanceMarker
     /// </summary>
     public partial class App : Application
     {
-        private readonly CredentialHandler credentials;
-        private readonly NavigationStore _navigationStore;
+        private NavigationStore _navigationStore;
+        private CredentialHandler _credentials;
 
         public App()
         {
-            credentials = new CredentialHandler();
-            credentials.SignUp("s", "s", "Mr. Smilie");
-            credentials.GetOneTeacherSample().AddClass(new Class(
-                "BSCS 3-2", "COSC 30013: Subject Name", "M/F - 8:00 - 10:00"));
-            credentials.GetOneTeacherSample().AddClass(new Class(
-                "BSCS 4-2", "RES 42060: Subject Name", "Tu/Th - 8:00 - 10:00"));
-            credentials.GetOneTeacherSample().GetOneClassSample().AddStudent(new Student("Ruby Kurosawa", "2011-AQOURS"));
-
-            credentials.SignUp("a", "a", "Mr. A");
-
             _navigationStore = new NavigationStore();
+            _credentials = new CredentialHandler();
+            _credentials.SignUp("admin", "password", "Admin");
+            _credentials.SignUp("smilie", "test_password", "Mr. Smilie");
         }
-
         protected override void OnStartup(StartupEventArgs e)
         {
-            _navigationStore.CurrentViewModel = new SignInViewModel(credentials, _navigationStore);
+            _navigationStore.CurrentViewModel = CreateSignInViewModel();
 
             MainWindow = new MainWindow()
             {
@@ -40,6 +32,16 @@ namespace AttendanceMarker
             };
             MainWindow.Show();
             base.OnStartup(e);
+        }
+
+        private SignInViewModel CreateSignInViewModel()
+        {
+            return new SignInViewModel(_navigationStore, _credentials, CreateSignUpViewModel);
+        }
+
+        private SignUpViewModel CreateSignUpViewModel()
+        {
+            return new SignUpViewModel(_navigationStore, _credentials, CreateSignInViewModel);
         }
     }
 

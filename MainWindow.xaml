@@ -6,19 +6,19 @@
         xmlns:local="clr-namespace:AttendanceMarker" 
         xmlns:vms="clr-namespace:AttendanceMarker.ViewModels" 
         xmlns:views="clr-namespace:AttendanceMarker.Views"
+        xmlns:vms="clr-namespace:AttendanceMarker.ViewModels"
         mc:Ignorable="d"
         Title="AttendEase" Height="600" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid.Resources>
             <DataTemplate DataType="{x:Type vms:SignInViewModel}">
-                <views:SignInView />
+                <views:SignInView/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type vms:DashboardViewModel}">
-                <views:DashboardView />
+            <DataTemplate DataType="{x:Type vms:SignUpViewModel}">
+                <views:SignUpView/>
             </DataTemplate>
         </Grid.Resources>
 
-        <ContentControl Content="{Binding CurrentViewModel}" />
-
+        <ContentControl Content="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>
