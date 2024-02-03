@@ -1,5 +1,6 @@
 ﻿using AttendanceMarker.Commands;
 using AttendanceMarker.Models;
+using AttendanceMarker.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Windows.Input;
 
 namespace AttendanceMarker.ViewModels
 {
-    public class SignInViewModel : ViewBaseModel
+    public class SignInViewModel : ViewModelBase
     {
 		private string _username;
 		public string Username
@@ -40,12 +41,16 @@ namespace AttendanceMarker.ViewModels
 		}
 
 		public ICommand SignInCommand { get; }
-		public ICommand SignUpCommand { get; }
-		public ICommand ForgotPasswordCommand { get; }
+		public ICommand NavigateSignUpCommand { get; }
 
-        public SignInViewModel(CredentialHandler _credentials)
-        {
-			SignInCommand = new SignInCommand(this, _credentials);
+        public SignInViewModel(
+			NavigationStore navigationStore, 
+			CredentialHandler _credentials, 
+			Func<SignUpViewModel> createSignUpViewModel,
+			Func<Teacher, DashboardViewModel> createDashboardViewModel
+		) {
+			SignInCommand = new SignInCommand(this, _credentials, navigationStore, createDashboardViewModel);
+			NavigateSignUpCommand = new NavigateCommand(navigationStore, createSignUpViewModel);
         }
     }
 }

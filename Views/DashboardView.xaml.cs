@@ -18,9 +18,9 @@ namespace AttendanceMarker.Views
     /// <summary>
     /// Interaction logic for Dashboard.xaml
     /// </summary>
-    public partial class Dashboard : UserControl
+    public partial class DashboardView : UserControl
     {
-        public Dashboard()
+        public DashboardView()
         {
             InitializeComponent();
         }

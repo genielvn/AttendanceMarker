@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace AttendanceMarker.Views
 {
     /// <summary>
-    /// Interaction logic for LookClassView.xaml
+    /// Interaction logic for Students.xaml
     /// </summary>
-    public partial class LookClassView : UserControl
+    public partial class Students : UserControl
     {
-        public LookClassView()
+        public Students()
         {
             InitializeComponent();
         }

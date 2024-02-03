@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AttendanceMarker.Views;
 
 namespace AttendanceMarker.Models
 {
     public class Class
     {
-        public string ClassName { get; }
+        public string ClassID { get; }
+        public string SubjectName { get; }
         public string Schedule { get; } 
         private readonly List<Student> _students;
-        public Class(string className, string schedule)
+        public Class(string classID, string subjectName, string schedule)
         {
-            ClassName = className;
+            ClassID = classID;
+            SubjectName = subjectName;
             Schedule = schedule;
             _students = new List<Student>();
         }
@@ -22,7 +25,7 @@ namespace AttendanceMarker.Models
         {
             _students.Add(newStudent);
         }
-        public IEnumerable<Student> GetStudents()
+        public List<Student> GetStudents()
         {
             return _students;
         }
@@ -30,17 +33,22 @@ namespace AttendanceMarker.Models
         public override bool Equals(object? obj)
         {
             return obj is Class _class &&
-                _class.ClassName == ClassName;
+                _class.ClassID == ClassID;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(ClassName, _students);
+            return HashCode.Combine(ClassID, _students);
         }
 
         public override string ToString()
         {
-            return ClassName;
+            return ClassID;
+        }
+
+        public Student GetOneStudentSample()
+        {
+            return _students.First();
         }
     }
 }

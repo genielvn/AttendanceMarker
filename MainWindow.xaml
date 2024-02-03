@@ -4,10 +4,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AttendanceMarker" 
+        xmlns:vms="clr-namespace:AttendanceMarker.ViewModels" 
         xmlns:views="clr-namespace:AttendanceMarker.Views"
         mc:Ignorable="d"
         Title="AttendEase" Height="600" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <views:Dashboard DataContext="{Binding CurrentViewModel}"/>
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type vms:SignInViewModel}">
+                <views:SignInView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:SignUpViewModel}">
+                <views:SignUpView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:DashboardViewModel}">
+                <views:DashboardView/>
+            </DataTemplate>
+        </Grid.Resources>
+
+        <ContentControl Content="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
 ﻿using AttendanceMarker.Models;
+using AttendanceMarker.Stores;
 using AttendanceMarker.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -13,11 +14,15 @@ namespace AttendanceMarker.Commands
     {
         private readonly SignInViewModel _signInViewModel;
         private readonly CredentialHandler _credentials;
+        private readonly NavigationStore _navigationStore;
+        private readonly Func<Teacher, ViewModelBase> _createViewModel;
 
-        public SignInCommand(SignInViewModel signInViewModel, CredentialHandler credentials)
+        public SignInCommand(SignInViewModel signInViewModel, CredentialHandler credentials, NavigationStore navigationStore, Func<Teacher, ViewModelBase> createViewModel)
         {
             _signInViewModel = signInViewModel;
             _credentials = credentials;
+            _navigationStore = navigationStore;
+            _createViewModel = createViewModel;
         }
 
         public override void Execute(object? parameter)
@@ -27,12 +32,13 @@ namespace AttendanceMarker.Commands
             if (teacher == null)
             {
                 MessageBox.Show("The username or password may be incorrect.", "Incorrect credentials", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
-            else
-            {
-                MessageBox.Show($"Welcome, {teacher.TeacherName}!");
-                // TODO: Show the next view. Don't forget to change the parameter.
-            }
+
+            MessageBox.Show($"Welcome, {teacher.TeacherName}!");
+            _navigationStore.CurrentViewModel = _createViewModel(teacher);
+
         }
+
     }
 }

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="AttendanceMarker.Views.Classes"
+﻿<UserControl x:Class="AttendanceMarker.Views.Students"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -40,12 +40,31 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="Classes" FontWeight="Medium" FontSize="60" Margin="50,10"/>
-        <ListView x:Name="lsvClasses" Grid.Row="1" Height="385" Width="820" Margin="20,0,20,10" Foreground="#000000" SelectionMode="Single" ItemsSource="{Binding ClassesTable}" SelectedIndex="{Binding SelectIndex, UpdateSourceTrigger=PropertyChanged}">
-            <!-- DONT REMOVE THE SELECTEDITEM BINDING HERE. idk why, but the SelectedIndex also just disappears when removed. -->
-            <!-- Okay, nvm, it works. -->
+        <Grid Grid.Row="0" Background="#b6b6b6">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Subject" Padding="10,10,0,0" FontSize="16"/>
+            <TextBlock Grid.Row="1" Text="{Binding SubjectName}" Padding="10,4"
+                       FontSize="24"/>
+        </Grid>
+        <Grid Grid.Row="1" Background="#f9f5ec">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="{Binding Class}" Padding="10,5" FontSize="16"/>
+            <TextBlock Grid.Column="1" Text="{Binding Schedule}" Padding="10,5" FontSize="16"/>
+        </Grid>
+        <Grid Grid.Row="2" Width="880" Background="#f5834d">
+            <TextBlock Grid.Column="1" Text="C L A S S   L I S T" Padding="10,5" FontSize="24" FontWeight="Medium" HorizontalAlignment="Center"/>
+        </Grid>
+        <ListView Grid.Row="3" Height="375" Width="880" Foreground="#000000" SelectionMode="Single" ItemsSource="{Binding StudentTable}">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="Background" Value="#dad9d7" />
@@ -56,52 +75,51 @@
             </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView ColumnHeaderContainerStyle="{StaticResource HeaderTableStyle}">
-                    <GridViewColumn Header="Class" Width="150">
+                    <GridViewColumn Header="Name" Width="500">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding ClassID}" />
+                                <TextBlock Text="{Binding StudentName}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Subject Name" Width="200">
+                    <GridViewColumn Header="Student ID" Width="350">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding SubjectName}" />
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header="Schedule" Width="200">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Schedule}" />
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header="Students" Width="100">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding NumberOfStudents}" />
+                                <TextBlock Text="{Binding StudentID}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                 </GridView>
-            </ListView.View>    
+            </ListView.View>
         </ListView>
-        <Border Grid.Row="1" 
+        <Border Grid.Row="3" 
                 Width="230" 
                 Height="35" 
                 CornerRadius="40,0,0,0" 
                 Background="#f5834d" 
                 HorizontalAlignment="Right" 
                 VerticalAlignment="Bottom">
-            <Button Content="ADD CLASS" Style="{StaticResource RemoveHover}"
+            <Button Content="ADD STUDENT" Style="{StaticResource RemoveHover}"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Height="Auto"
+                    Width="Auto"
+                    Foreground="#50413c"/>
+        </Border>
+        <Border Grid.Row="3" 
+        Width="230" 
+        Height="35" 
+        CornerRadius="0,40,0,0" 
+        Background="#f5834d" 
+        HorizontalAlignment="Left" 
+        VerticalAlignment="Bottom">
+            <Button Content="RETURN TO CLASS LIST" Style="{StaticResource RemoveHover}"
                     FontSize="18"
                     FontWeight="Bold"
                     Height="Auto"
                     Width="Auto"
                     Foreground="#50413c"
-                    Command="{Binding AddClassCommand}"/>
+                    Command="{Binding ReturnCommand}"/>
         </Border>
-        
     </Grid>
 </UserControl>
