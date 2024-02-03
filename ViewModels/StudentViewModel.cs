@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using AttendanceMarker.Commands;
 using AttendanceMarker.Models;
 using AttendanceMarker.Stores;
 using AttendanceMarker.Views;
@@ -17,6 +18,7 @@ namespace AttendanceMarker.ViewModels
         private readonly ObservableCollection<StudentTableViewModel> _students;
         private readonly NavigationStore _dashboardNavigationStore;
         private readonly Class _currentClass;
+        private readonly Func<ClassesViewModel> _createClassesViewModel;
         public IEnumerable<StudentTableViewModel> StudentTable => _students;
 
 
@@ -55,12 +57,13 @@ namespace AttendanceMarker.ViewModels
         public ICommand ReturnCommand { get; }
         public ICommand StartAttendance { get; }
 
-        public StudentViewModel(List<Student> students, NavigationStore dashboardNavigationStore, Class currentClass) 
+        public StudentViewModel(List<Student> students, Class currentClass, NavigationStore dashboardNavigationStore, Func<ClassesViewModel> createClassViewModel) 
         {
             _students = new ObservableCollection<StudentTableViewModel>();
             _dashboardNavigationStore = dashboardNavigationStore;
             Students = students;
             _currentClass = currentClass;
+            _createClassesViewModel = createClassViewModel;
 
             _subjectName = currentClass.SubjectName;
             _schedule = currentClass.Schedule;
@@ -73,6 +76,9 @@ namespace AttendanceMarker.ViewModels
             {
                 _students.Add(new StudentTableViewModel(student_enumerator.Current));
             }
+
+            ReturnCommand = new NavigateCommand(_dashboardNavigationStore, createClassViewModel);
+
         }
 
     }

@@ -7,6 +7,7 @@ using System.Windows.Input;
 using AttendanceMarker.Commands;
 using AttendanceMarker.Models;
 using AttendanceMarker.Stores;
+using AttendanceMarker.Views;
 
 namespace AttendanceMarker.ViewModels
 {
@@ -15,6 +16,9 @@ namespace AttendanceMarker.ViewModels
         private readonly Teacher _teacher;
         private readonly CredentialHandler _credentials;
         private readonly NavigationStore _navigationStore;
+        private NavigationStore _dashboardNavigationStore;
+
+        public ViewModelBase CurrentDashboardViewModel => _dashboardNavigationStore.CurrentViewModel;
         public string TeacherName => _teacher.TeacherName;
         public ICommand LogOutCommand { get; }
         public ICommand GoToClassDashboardCommand { get; }
@@ -25,7 +29,27 @@ namespace AttendanceMarker.ViewModels
             _teacher = teacher;
             _credentials = credentials;
             _navigationStore = navigationStore;
+
+            _dashboardNavigationStore = new NavigationStore();
+            _dashboardNavigationStore.CurrentViewModel = CreateClassesViewModel();
+            _dashboardNavigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
+
             LogOutCommand = new LogOutCommand(credentials, _navigationStore, createSignInViewModel);
+        }
+
+        private ClassesViewModel CreateClassesViewModel()
+        {
+            return new ClassesViewModel(_teacher.GetClasses(), _dashboardNavigationStore, CreateStudentViewModel);
+        }
+
+        private StudentViewModel CreateStudentViewModel(List<Student> students, Class @class)
+        {
+            return new StudentViewModel(students, @class, _dashboardNavigationStore, CreateClassesViewModel);
+        }
+
+        private void OnCurrentViewModelChanged()
+        {
+            OnPropertyChanged(nameof(CurrentDashboardViewModel));
         }
 
     }

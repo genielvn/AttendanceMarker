@@ -18,8 +18,9 @@ namespace AttendanceMarker.ViewModels
         public List<Class> Classes;
         private readonly ObservableCollection<ClassTableViewModel> _classes;
         private readonly NavigationStore _dashboardNavigationStore;
+        private readonly Func<List<Student>, Class, StudentViewModel> _createStudentViewModel;
 
-        private int _selectIndex;
+        private int _selectIndex = -1;
 
         public int SelectIndex 
         {
@@ -29,21 +30,23 @@ namespace AttendanceMarker.ViewModels
                 _selectIndex = value;
                 OnPropertyChanged(nameof(_selectIndex));
                 if (_selectIndex == -1) return;
-                _dashboardNavigationStore.CurrentViewModel = new StudentViewModel(Classes.ElementAt(_selectIndex).GetStudents(), 
-                                                                                  _dashboardNavigationStore, Classes.ElementAt(SelectIndex));
+                _dashboardNavigationStore.CurrentViewModel = _createStudentViewModel(
+                    Classes.ElementAt(_selectIndex).GetStudents(),
+                    Classes.ElementAt(_selectIndex));
             } 
         }
 
         public IEnumerable<ClassTableViewModel> ClassesTable => _classes;
         public ICommand AddClassCommand { get; }
 
-        public ClassesViewModel(List<Class> classes, NavigationStore dashboardNavigationStore)
+        public ClassesViewModel(List<Class> classes, NavigationStore dashboardNavigationStore, Func<List<Student>, Class, StudentViewModel> createStudentViewModel)
         {
             _classes = new ObservableCollection<ClassTableViewModel>();
             _dashboardNavigationStore = dashboardNavigationStore;
             Classes = classes;
             _selectIndex = -1;
 
+            _createStudentViewModel = createStudentViewModel;
 
             IEnumerable<Class> IClassEnumerable = classes;
             IEnumerator<Class> class_enumerate = IClassEnumerable.GetEnumerator();
