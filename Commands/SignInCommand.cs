@@ -12,15 +12,14 @@ namespace AttendanceMarker.Commands
 {
     public class SignInCommand : CommandBase
     {
+        private readonly NavigationStore _navigationStore;
         private readonly SignInViewModel _signInViewModel;
         private readonly CredentialHandler _credentials;
-        private readonly NavigationStore _navigationStore;
 
-        public SignInCommand(SignInViewModel signInViewModel, CredentialHandler credentials, NavigationStore navigationStore)
+        public SignInCommand(SignInViewModel signInViewModel, CredentialHandler credentials)
         {
             _signInViewModel = signInViewModel;
             _credentials = credentials;
-            _navigationStore = navigationStore;
         }
 
         public override void Execute(object? parameter)
@@ -34,7 +33,7 @@ namespace AttendanceMarker.Commands
             }
 
             MessageBox.Show($"Welcome, {teacher.TeacherName}!");
-            _navigationStore.CurrentViewModel = new DashboardViewModel(teacher, _credentials, _navigationStore, new NavigationStore());
+            //_navigationStore.CurrentViewModel = new DashboardViewModel(teacher, _credentials, _navigationStore, new NavigationStore());
 
         }
 

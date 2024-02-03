@@ -59,7 +59,7 @@ namespace AttendanceMarker.ViewModels
 
         public SignUpViewModel(NavigationStore _navigationStore, CredentialHandler _credentials, Func<SignInViewModel> createSignInViewModel)
         {
-            CreateAccountCommand = new SignUpCommand(this, _credentials);
+            CreateAccountCommand = new SignUpCommand(this, _credentials, _navigationStore, createSignInViewModel);
             NavigateSignInCommand = new NavigateCommand(_navigationStore, createSignInViewModel);
 
         }

@@ -1,4 +1,5 @@
 ﻿using AttendanceMarker.Models;
+using AttendanceMarker.Stores;
 using AttendanceMarker.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -13,11 +14,15 @@ namespace AttendanceMarker.Commands
     {
         private readonly SignUpViewModel _signUpViewModel;
         private readonly CredentialHandler _credentials;
+        private readonly NavigationStore _navigationStore;
+        private readonly Func<ViewModelBase> _createViewModel;
 
-        public SignUpCommand(SignUpViewModel signUpViewModel, CredentialHandler credentials)
+        public SignUpCommand(SignUpViewModel signUpViewModel, CredentialHandler credentials, NavigationStore navigationStore, Func<ViewModelBase> createViewModel)
         {
             _signUpViewModel = signUpViewModel;
             _credentials = credentials;
+            _navigationStore = navigationStore;
+            _createViewModel = createViewModel;
         }
 
         public override void Execute(object? parameter)
@@ -25,7 +30,8 @@ namespace AttendanceMarker.Commands
             if (_signUpViewModel.Password == _signUpViewModel.RetypePassword)
             {
                 _credentials.SignUp(_signUpViewModel.Username, _signUpViewModel.Password, _signUpViewModel.Username);
-                // TODO: Show the next view. Don't forget to change the parameter.
+                MessageBox.Show("You have successfully signed up! Sign in to continue to your account.", "Sign Up Complete", MessageBoxButton.OK, MessageBoxImage.Information);
+                _navigationStore.CurrentViewModel = _createViewModel();
             }
             else
             {

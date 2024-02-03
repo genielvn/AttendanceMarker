@@ -48,7 +48,6 @@ namespace AttendanceMarker.ViewModels
         {
 			SignInCommand = new SignInCommand(this, _credentials);
 			NavigateSignUpCommand = new NavigateCommand(navigationStore, createSignUpViewModel);
-
         }
     }
 }
