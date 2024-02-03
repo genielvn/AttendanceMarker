@@ -10,35 +10,23 @@ using AttendanceMarker.Stores;
 
 namespace AttendanceMarker.ViewModels
 {
-    class DashboardViewModel : ViewModelBase
     public class DashboardViewModel : ViewModelBase
     {
         private readonly Teacher _teacher;
         private readonly CredentialHandler _credentials;
-        private readonly NavigationStore _currentNavigationStore;
-        private readonly NavigationStore _dashboardNavigationStore;
-        public ViewModelBase CurrentDashboardViewModel => _dashboardNavigationStore.CurrentViewModel;
+        private readonly NavigationStore _navigationStore;
         public string TeacherName => _teacher.TeacherName;
         public ICommand LogOutCommand { get; }
         public ICommand GoToClassDashboardCommand { get; }
         public string Today => DateTime.Now.ToString("MMMM dd, yyyy");
 
-        public DashboardViewModel(Teacher teacher, CredentialHandler credentials, NavigationStore currentNavigationStore, NavigationStore dashboardNavigationStore)
+        public DashboardViewModel(Teacher teacher, CredentialHandler credentials, NavigationStore navigationStore, Func<ViewModelBase> createSignInViewModel)
         {
-            // Oh god, I am so fucking lazy that I passed the credentials to the view model instead of having a function that holds the view models.
             _teacher = teacher;
             _credentials = credentials;
-            _dashboardNavigationStore = dashboardNavigationStore;
-            _currentNavigationStore = currentNavigationStore;
-            _dashboardNavigationStore.CurrentViewModel = new ClassesViewModel(teacher.GetClasses(), _dashboardNavigationStore);
-            _dashboardNavigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
-            LogOutCommand = new LogOutCommand(credentials, _currentNavigationStore);
-
+            _navigationStore = navigationStore;
+            LogOutCommand = new LogOutCommand(credentials, _navigationStore, createSignInViewModel);
         }
 
-        private void OnCurrentViewModelChanged()
-        {
-            OnPropertyChanged(nameof(CurrentDashboardViewModel));
-        }
     }
 }

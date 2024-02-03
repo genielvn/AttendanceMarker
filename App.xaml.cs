@@ -45,7 +45,7 @@ namespace AttendanceMarker
         }
         private DashboardViewModel CreateDashboardViewModel(Teacher teacher)
         {
-            return new DashboardViewModel(teacher, _credentials, _navigationStore) ;
+            return new DashboardViewModel(teacher, _credentials, _navigationStore, CreateSignInViewModel) ;
         }
 
     }

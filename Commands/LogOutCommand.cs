@@ -12,13 +12,12 @@ namespace AttendanceMarker.Commands
 {
     public class LogOutCommand : CommandBase
     {
-        private readonly CredentialHandler _credentials;
-
         private readonly NavigationStore _navigationStore;
-        public LogOutCommand(CredentialHandler credentials, NavigationStore navigationStore)
+        private readonly Func<ViewModelBase> _createViewModel;
+        public LogOutCommand(CredentialHandler credentials, NavigationStore navigationStore, Func<ViewModelBase> createViewModelBase)
         {
-            _credentials = credentials;
             _navigationStore = navigationStore;
+            _createViewModel = createViewModelBase;
         }
 
         public override void Execute(object? parameter)
@@ -26,7 +25,7 @@ namespace AttendanceMarker.Commands
             MessageBoxResult SignOut = MessageBox.Show("Do you wish to log out?", "Log Out", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (SignOut == MessageBoxResult.Yes)
             {
-                _navigationStore.CurrentViewModel = new SignInViewModel(_credentials, _navigationStore);
+                _navigationStore.CurrentViewModel = _createViewModel();
             }
         }
     }
