@@ -13,9 +13,6 @@
     <Compile Update="Views\Classes.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\LookClassView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\SignInView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -33,9 +30,6 @@
     <Page Update="Views\Classes.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\LookClassView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Views\SignUpView.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -46,3 +40,4 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+</Project>
