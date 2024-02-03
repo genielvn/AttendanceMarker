@@ -113,9 +113,7 @@
                 </Grid.Resources>
 
                 <ContentControl Content="{Binding CurrentDashboardViewModel}" />
-                <!--
-                <views:Classes DataContext="{Binding CurrentDashboardViewModel}"/>
-                -->
+
             </Grid>
         </Grid>
     </Grid>
