@@ -42,7 +42,6 @@ namespace AttendanceMarker.ViewModels
 
 		public ICommand SignInCommand { get; }
 		public ICommand NavigateSignUpCommand { get; }
-		public ICommand ForgotPasswordCommand { get; }
 
         public SignInViewModel(NavigationStore navigationStore, CredentialHandler _credentials, Func<SignUpViewModel> createSignUpViewModel)
         {
