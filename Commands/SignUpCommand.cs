@@ -27,16 +27,26 @@ namespace AttendanceMarker.Commands
 
         public override void Execute(object? parameter)
         {
-            if (_signUpViewModel.Password == _signUpViewModel.RetypePassword)
+            if (_signUpViewModel.Username == String.Empty ||
+                _signUpViewModel.Password == String.Empty ||
+                _signUpViewModel.RetypePassword == String.Empty ||
+                _signUpViewModel.Username == null ||
+                _signUpViewModel.Password == null ||
+                _signUpViewModel.RetypePassword == null)
             {
-                _credentials.SignUp(_signUpViewModel.Username, _signUpViewModel.Password, _signUpViewModel.Username);
-                MessageBox.Show("You have successfully signed up! Sign in to continue to your account.", "Sign Up Complete", MessageBoxButton.OK, MessageBoxImage.Information);
-                _navigationStore.CurrentViewModel = _createViewModel();
+                MessageBox.Show("Some fields are left empty.", "No input", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
-            else
+
+            if (_signUpViewModel.Password != _signUpViewModel.RetypePassword)
             {
                 MessageBox.Show("Passwords did not match.", "Password Mismatch", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
+            
+            MessageBox.Show("You have successfully signed up! Sign in to continue to your account.", "Sign Up Complete", MessageBoxButton.OK, MessageBoxImage.Information);
+            _navigationStore.CurrentViewModel = _createViewModel();
+            _credentials.SignUp(_signUpViewModel.Username, _signUpViewModel.Password, _signUpViewModel.Username);
         }
     }
 }
