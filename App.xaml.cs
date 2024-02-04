@@ -21,6 +21,8 @@ namespace AttendanceMarker
             _credentials = new CredentialHandler();
             _credentials.SignUp("admin", "password", "Admin");
             _credentials.SignUp("smilie", "test_password", "Mr. Smilie");
+            _credentials.GetOneTeacherSample().AddClass(new Class("BSCS 3-2", "COSC 30013: Subject Name", "M/F 8:00PM 10:00PM"));
+            _credentials.GetOneTeacherSample().GetOneClassSample().AddStudent(new Student("Ruby Kurosawa", "2015-AQOURS"));
         }
         protected override void OnStartup(StartupEventArgs e)
         {
