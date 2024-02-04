@@ -27,6 +27,9 @@
     <Page Update="Views\AddClass.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\AddStudent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Classes.xaml">
       <SubType>Designer</SubType>
     </Page>
