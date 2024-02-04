@@ -44,11 +44,17 @@ namespace AttendanceMarker.ViewModels
 
         private StudentViewModel CreateStudentViewModel(List<Student> students, Class @class)
         {
-            return new StudentViewModel(students, @class, _dashboardNavigationStore, CreateClassesViewModel);
+            return new StudentViewModel(students, @class, _dashboardNavigationStore, CreateClassesViewModel, CreateAddStudentViewModel);
+        }
+
         private AddClassViewModel CreateAddClassViewModel()
         {
             return new AddClassViewModel(_teacher.GetClasses(), _dashboardNavigationStore, CreateClassesViewModel);
         }
+
+        private AddStudentViewModel CreateAddStudentViewModel(List<Student> students, Class @class)
+        {
+            return new AddStudentViewModel(students, @class, _dashboardNavigationStore, CreateStudentViewModel);
         }
 
         private void OnCurrentViewModelChanged()

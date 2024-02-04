@@ -104,7 +104,8 @@
                     FontWeight="Bold"
                     Height="Auto"
                     Width="Auto"
-                    Foreground="#50413c"/>
+                    Foreground="#50413c"
+                    Command="{Binding AddStudent}"/>
         </Border>
         <Border Grid.Row="3" 
         Width="230" 

@@ -19,6 +19,7 @@ namespace AttendanceMarker.ViewModels
         private readonly NavigationStore _dashboardNavigationStore;
         private readonly Class _currentClass;
         private readonly Func<ClassesViewModel> _createClassesViewModel;
+        private readonly Func<List<Student>, Class, AddStudentViewModel> _createAddStudentViewModel;
         public IEnumerable<StudentTableViewModel> StudentTable => _students;
 
 
@@ -57,8 +58,13 @@ namespace AttendanceMarker.ViewModels
         public ICommand ReturnCommand { get; }
         public ICommand StartAttendance { get; }
 
-        public StudentViewModel(List<Student> students, Class currentClass, NavigationStore dashboardNavigationStore, Func<ClassesViewModel> createClassViewModel) 
-        {
+        public StudentViewModel(
+            List<Student> students, 
+            Class currentClass, 
+            NavigationStore dashboardNavigationStore, 
+            Func<ClassesViewModel> createClassViewModel,
+            Func<List<Student>, Class, AddStudentViewModel> createAddStudentViewModel
+        ) {
             _students = new ObservableCollection<StudentTableViewModel>();
             _dashboardNavigationStore = dashboardNavigationStore;
             Students = students;
@@ -77,6 +83,7 @@ namespace AttendanceMarker.ViewModels
                 _students.Add(new StudentTableViewModel(student_enumerator.Current));
             }
 
+            AddStudent = new NavigateStudentCommand(Students, _currentClass, _dashboardNavigationStore, createAddStudentViewModel);
             ReturnCommand = new NavigateCommand(_dashboardNavigationStore, createClassViewModel);
 
         }
