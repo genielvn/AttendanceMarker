@@ -36,38 +36,43 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid Name="Header" Grid.Row="0" Background="#ffcd64">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <Image Name="Logo" Grid.Column="0" Margin="20" Width="112" Height="23">
-                <Image.Source>
-                    <BitmapImage UriSource="/Resources/logo.png" />
-                </Image.Source>
-            </Image>
-            <TextBlock Name="txbDate" Grid.Column="1" 
+        <Border Name="Header" Grid.Row="0" Background="#f9f5ec" BorderBrush="Black" BorderThickness="0">
+            <Border.Effect>
+                <DropShadowEffect Opacity="0.5"/>
+            </Border.Effect>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Image Name="Logo" Grid.Column="0" Margin="20" Width="112" Height="23">
+                    <Image.Source>
+                        <BitmapImage UriSource="/Resources/logo.png" />
+                    </Image.Source>
+                </Image>
+                <TextBlock Name="txbDate" Grid.Column="1" 
                        Text="{Binding Today}" 
                        HorizontalAlignment="Right" 
                        VerticalAlignment="Center"
                        Margin="20"
                        FontWeight="Bold"
                        FontSize="20"/>
-            <Button Name="btnShutdown" Grid.Column="2" 
+                <Button Name="btnShutdown" Grid.Column="2" 
                     Foreground="{x:Null}"
                     Background="{x:Null}"
                     BorderBrush="{x:Null}"
                     Width="50"
                     Style="{StaticResource RemoveHover}"
                     Command="{Binding LogOutCommand}">
-                <Image Name="ShutdownImage" Width="30" Height="30">
-                    <Image.Source>
-                        <BitmapImage UriSource="/Resources/power.png" />
-                    </Image.Source>
-                </Image>
-            </Button>
-        </Grid>
+                    <Image Name="ShutdownImage" Width="30" Height="30">
+                        <Image.Source>
+                            <BitmapImage UriSource="/Resources/power.png" />
+                        </Image.Source>
+                    </Image>
+                </Button>
+            </Grid>
+        </Border>
         <Grid Name="Content" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -109,6 +114,9 @@
                     </DataTemplate>
                     <DataTemplate DataType="{x:Type vms:AddClassViewModel}">
                         <views:AddClass />
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type vms:AddStudentViewModel}">
+                        <views:AddStudent />
                     </DataTemplate>
                 </Grid.Resources>
 
