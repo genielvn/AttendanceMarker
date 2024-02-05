@@ -26,6 +26,20 @@ namespace AttendanceMarker.ViewModels
             }
         }
 
+        private string _teachername;
+        public string TeacherName
+        {
+            get
+            {
+                return _teachername;
+            }
+            set
+            {
+                _teachername = value;
+                OnPropertyChanged(nameof(TeacherName));
+            }
+        }
+
         private string _password;
         public string Password
         {
@@ -39,21 +53,6 @@ namespace AttendanceMarker.ViewModels
                 OnPropertyChanged(nameof(Password));
             }
         }
-
-        private string _retypePassword;
-        public string RetypePassword
-        {
-            get
-            {
-                return _retypePassword;
-            }
-            set
-            {
-                _retypePassword = value;
-                OnPropertyChanged(nameof(RetypePassword));
-            }
-        }
-
         public ICommand NavigateSignInCommand { get; }
         public ICommand CreateAccountCommand { get; }
 

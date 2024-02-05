@@ -93,9 +93,9 @@
                                 </TextBox.Resources>
                             </TextBox>
                         </Grid>
-                        <Grid Name="Password" Grid.Row="2" Margin="25,0,0,0">
+                        <Grid Name="TeacherName" Grid.Row="2" Margin="25,0,0,0">
                             <TextBlock Name="txbPassword"
-                                       Text="Password:" 
+                                       Text="Full Name:" 
                                        Grid.Row="0" 
                                        Foreground="#5c4a3f"
                                        FontSize="20"
@@ -106,7 +106,7 @@
                                      Width="380" 
                                      VerticalContentAlignment="Center"
                                      Padding="10,0" Margin="0,30,45,0"
-                                     Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}">
+                                     Text="{Binding TeacherName, UpdateSourceTrigger=PropertyChanged}">
                                 <!-- https://stackoverflow.com/questions/4779777/wpf-rounded-corner-textbox -->
                                 <TextBox.Resources>
                                     <Style TargetType="{x:Type Border}">
@@ -115,9 +115,9 @@
                                 </TextBox.Resources>
                             </TextBox>
                         </Grid>
-                        <Grid Name="retypePassword" Grid.Row="3" Margin="25,0,0,0">
+                        <Grid Name="Password" Grid.Row="3" Margin="25,0,0,0">
                             <TextBlock Name="passwordConfirmationBlock"
-                                       Text="Re-type Password:" 
+                                       Text="Password:" 
                                        Grid.Row="0" 
                                        Foreground="#5c4a3f"
                                        FontSize="20"
@@ -128,7 +128,7 @@
                                      Width="380"
                                      VerticalContentAlignment="Center"
                                      Padding="10,0" Margin="0,30,45,0"
-                                     Text="{Binding RetypePassword, UpdateSourceTrigger=PropertyChanged}">
+                                     Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}">
                                 <!-- https://stackoverflow.com/questions/4779777/wpf-rounded-corner-textbox -->
                                 <TextBox.Resources>
                                     <Style TargetType="{x:Type Border}">

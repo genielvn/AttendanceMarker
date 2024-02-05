@@ -31,15 +31,44 @@
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="55" />
+            <RowDefinition Height="80" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="153" />
         </Grid.RowDefinitions>
-
-        <TextBox Grid.Row="0" Height="30" Width="800" Text="{Binding StudentID, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBox Grid.Row="1" Height="30" Width="800" Text="{Binding StudentName, UpdateSourceTrigger=PropertyChanged}"/>
-        <Border Grid.Row="3" 
+        <TextBlock Grid.Row="0" Width="884" Text="Add Student" FontWeight="Medium" FontSize="40" Background="#FF774A" Foreground="White" FontFamily="Alatsi" Padding="30,0,0,0" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Text="Student Information" FontWeight="Medium" FontSize="40"  Foreground="#50413C" FontFamily="Alatsi" Padding="40,33,0,0"/>
+        <Grid Name="StudentID" Grid.Row="2" Margin="0,19,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Student ID (required):" Foreground="#50413C" FontFamily="Alatsi" FontSize="30" Padding="60,0,0,0"/>
+            <TextBox Grid.Row="1" Height="50" Width="auto" Background="#D9D9D9" Margin="60,0,60,0" Text="{Binding StudentID, UpdateSourceTrigger=PropertyChanged}" FontFamily="Alatsi" FontSize="30" VerticalContentAlignment="Center">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+        </Grid>
+        <Grid Name="StudentName" Grid.Row="3" Margin="0,19,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Student Name:" Foreground="#50413C" FontFamily="Alatsi" FontSize="30" Padding="60,0,0,0"/>
+            <TextBox Grid.Row="1" Height="50" Width="auto" Background="#D9D9D9" Margin="60,0,60,0" Text="{Binding StudentName, UpdateSourceTrigger=PropertyChanged}" FontFamily="Alatsi" FontSize="30" VerticalContentAlignment="Center">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+        </Grid>
+        <Border Grid.Row="5" 
                 Width="230" 
                 Height="35" 
                 CornerRadius="0,40,0,0" 
@@ -54,7 +83,7 @@
                     Foreground="#50413c"
                     Command="{Binding ReturnCommand}"/>
         </Border>
-        <Border Grid.Row="3" 
+        <Border Grid.Row="5" 
                 Width="230" 
                 Height="35" 
                 CornerRadius="40,0,0,0" 
