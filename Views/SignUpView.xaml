@@ -52,7 +52,7 @@
             <Border Name="brdSignInBox" Grid.Row="1" Background="#ffcd64" Height="334" Width="800" CornerRadius="0,40,200,0" Margin="100,0" HorizontalAlignment="Left">
                 <Grid Name="SignInBox">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="510"/>
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <Grid Name="InputCredentials" Grid.Column="0" Margin="25,10,50,25">
@@ -83,7 +83,7 @@
                                      Height="35"
                                      Width="380" 
                                      VerticalContentAlignment="Center"
-                                     Padding="10,0" Margin="0,30,45,0"
+                                     Padding="10,0" Margin="0,30,30,0"
                                      Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}">
                                 <!-- https://stackoverflow.com/questions/4779777/wpf-rounded-corner-textbox -->
                                 <TextBox.Resources>
@@ -105,7 +105,7 @@
                                      Height="35"
                                      Width="380" 
                                      VerticalContentAlignment="Center"
-                                     Padding="10,0" Margin="0,30,45,0"
+                                     Padding="10,0" Margin="0,30,30,0"
                                      Text="{Binding TeacherName, UpdateSourceTrigger=PropertyChanged}">
                                 <!-- https://stackoverflow.com/questions/4779777/wpf-rounded-corner-textbox -->
                                 <TextBox.Resources>
@@ -127,7 +127,7 @@
                                      Height="35"
                                      Width="380"
                                      VerticalContentAlignment="Center"
-                                     Padding="10,0" Margin="0,30,45,0"
+                                     Padding="10,0" Margin="0,30,30,0"
                                      Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}">
                                 <!-- https://stackoverflow.com/questions/4779777/wpf-rounded-corner-textbox -->
                                 <TextBox.Resources>
