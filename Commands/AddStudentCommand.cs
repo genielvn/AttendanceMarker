@@ -32,7 +32,7 @@ namespace AttendanceMarker.Commands
         }
         public override void Execute(object? parameter)
         {
-            MessageBox.Show("Test add complete");
+            MessageBox.Show("Add Student Complete");
             _students.Add(new Student(_addStudentViewModel.StudentName, _addStudentViewModel.StudentID));
             _dashboardNavigationStore.CurrentViewModel = _createStudentViewModel(_students, _class);
         }

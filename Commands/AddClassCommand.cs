@@ -18,7 +18,7 @@ namespace AttendanceMarker.Commands
         private readonly Func<ClassesViewModel> _createClassViewModel;
         public override void Execute(object? parameter)
         {
-            MessageBox.Show("Test add complete");
+            MessageBox.Show("Add Class Complete");
             _class.Add(new Class(_addClassViewModel.ClassID, _addClassViewModel.ClassSubject, _addClassViewModel.ClassSchedule));
             _dashboardNavigationStore.CurrentViewModel = _createClassViewModel();
         }
